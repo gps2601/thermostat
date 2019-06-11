@@ -50,4 +50,10 @@ describe('Thermostat', function() {
     thermostat.togglePowerSaving();
     expect(thermostat.powerSaving).toEqual(false);
   });
+
+  it('#togglePowerSaving make powerSaving true', function() {
+    thermostat.togglePowerSaving();
+    thermostat.togglePowerSaving();
+    expect(thermostat.powerSaving).toEqual(true);
+  });
 });
