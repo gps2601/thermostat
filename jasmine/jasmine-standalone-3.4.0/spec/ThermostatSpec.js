@@ -94,4 +94,11 @@ describe('Thermostat', function() {
   it('#energyUsage will return low if less than 18', function() {
     expect(thermostat.energyUsage()).toEqual('medium-usage')
   });
+
+  it('#energyUsage will return low if less than 18', function() {
+    for (var i = 0; i < 6; i++) {
+      thermostat.up();
+    }
+    expect(thermostat.energyUsage()).toEqual('high-usage')
+  });
 });

@@ -55,5 +55,7 @@ Thermostat.prototype.energyUsage = function () {
     return 'low-usage';
   } else if (this.temp < 25) {
     return 'medium-usage';
+  } else {
+    return 'high-usage';
   }
 };
