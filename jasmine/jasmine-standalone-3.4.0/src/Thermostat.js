@@ -45,3 +45,7 @@ Thermostat.prototype.isMinimumTemperature = function() {
 Thermostat.prototype.togglePowerSaving = function() {
   this.powerSaving = !this.powerSaving;
 }
+
+Thermostat.prototype.reset = function () {
+  this.temp = defaultTemperature;
+};

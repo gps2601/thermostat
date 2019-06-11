@@ -59,7 +59,7 @@ describe('Thermostat', function() {
     expect(thermostat.powerSaving).toEqual(true);
   });
 
-  it('wont exceed max temperature when power saving on', function(){
+  it('#up wont exceed max temperature when power saving on', function(){
     for (var i = 0; i < 6; i++) {
       thermostat.up();
     }
@@ -67,12 +67,20 @@ describe('Thermostat', function() {
     expect(thermostat.temp).toEqual(25);
   });
 
-  it('wont exceed max temperature when power saving off', function(){
+  it('#up wont exceed max temperature when power saving off', function(){
     thermostat.togglePowerSaving();
     for (var i = 0; i < 13; i++) {
       thermostat.up();
     }
     thermostat.up();
     expect(thermostat.temp).toEqual(32);
+  });
+
+  it('#reset will reset to the default temperature', function() {
+    for (var i = 0; i < 6; i++) {
+      thermostat.up();
+    }
+    thermostat.reset();
+    expect(thermostat.temp).toEqual(20);
   });
 });
