@@ -28,7 +28,7 @@ describe('Thermostat', function() {
   });
 
   it('#down wont decrease temperature below ' + minimumTemperature, function() {
-    thermostat._temp = 10
+    thermostat.temp = 10
     thermostat.down();
     expect(thermostat.temperature())
       .toEqual(minimumTemperature);
@@ -44,5 +44,10 @@ describe('Thermostat', function() {
 
   it('#powerSaving to be true by default', function() {
     expect(thermostat.powerSaving).toEqual(true);
+  });
+
+  it('#togglePowerSaving make powerSaving false', function() {
+    thermostat.togglePowerSaving();
+    expect(thermostat.powerSaving).toEqual(false);
   });
 });

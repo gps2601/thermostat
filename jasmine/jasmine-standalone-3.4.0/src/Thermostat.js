@@ -3,25 +3,29 @@ const defaultTempChange = 1;
 const minimumTemperature = 10;
 
 function Thermostat() {
-  this._temp = defaultTemperature;
+  this.temp = defaultTemperature;
   this.powerSaving = true;
 };
 
 Thermostat.prototype.temperature = function () {
-  return this._temp;
+  return this.temp;
 };
 
 Thermostat.prototype.up = function () {
-  this._temp += defaultTempChange;
+  this.temp += defaultTempChange;
 };
 
 Thermostat.prototype.down = function () {
   if (this.isMinimumTemperature()) {
     return;
   }
-  this._temp -= 1;
+  this.temp -= 1;
 };
 
 Thermostat.prototype.isMinimumTemperature = function() {
-  return this._temp === minimumTemperature;
+  return this.temp === minimumTemperature;
+}
+
+Thermostat.prototype.togglePowerSaving = function() {
+  this.powerSaving = !this.powerSaving;
 }
