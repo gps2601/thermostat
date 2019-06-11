@@ -15,7 +15,7 @@ describe('Thermostat', function() {
     expect(thermostat.temperature()).toEqual(defaultTemperature);
   });
 
-  it('#up to increase by' + defaultTempChange, function() {
+  it('#up to increase by ' + defaultTempChange, function() {
     thermostat.up();
     expect(thermostat.temperature())
       .toEqual(defaultTemperature + defaultTempChange);
