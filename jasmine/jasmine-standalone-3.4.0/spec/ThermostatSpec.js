@@ -1,5 +1,9 @@
-describe('hello', function() {
-  it('can say hello', function() {
-    expect('hello').toEqual('hello');
+describe('Thermostat', function() {
+  beforeEach(() => {
+    thermostat = new Thermostat();
+  });
+
+  it('has a temperature', function() {
+    expect(thermostat.temperature).toBeDefined();
   });
 });
