@@ -12,3 +12,7 @@ Thermostat.prototype.temperature = function () {
 Thermostat.prototype.up = function () {
   this._temp += defaultTempChange;
 };
+
+Thermostat.prototype.down = function () {
+  this._temp -= defaultTempChange;
+};

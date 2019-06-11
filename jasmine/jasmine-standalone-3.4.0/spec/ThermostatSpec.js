@@ -15,9 +15,15 @@ describe('Thermostat', function() {
     expect(thermostat.temperature()).toEqual(defaultTemperature);
   });
 
-  it('#up to increase by 1', function() {
+  it('#up to increase by' + defaultTempChange, function() {
     thermostat.up();
     expect(thermostat.temperature())
       .toEqual(defaultTemperature + defaultTempChange);
+  });
+
+  it('#down to increase by -' + defaultTempChange, function() {
+    thermostat.down();
+    expect(thermostat.temperature())
+      .toEqual(defaultTemperature - defaultTempChange);
   });
 });
