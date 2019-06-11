@@ -1,5 +1,7 @@
-function Thermostat() {};
+function Thermostat() {
+  this._temp = 20;
+};
 
 Thermostat.prototype.temperature = function () {
-  return 20;
+  return this._temp;
 };
