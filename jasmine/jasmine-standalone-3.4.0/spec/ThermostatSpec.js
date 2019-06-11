@@ -90,4 +90,8 @@ describe('Thermostat', function() {
     }
     expect(thermostat.energyUsage()).toEqual('low-usage')
   });
+
+  it('#energyUsage will return low if less than 18', function() {
+    expect(thermostat.energyUsage()).toEqual('medium-usage')
+  });
 });
