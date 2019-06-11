@@ -26,4 +26,11 @@ describe('Thermostat', function() {
     expect(thermostat.temperature())
       .toEqual(defaultTemperature - defaultTempChange);
   });
+
+  it('#down wont decrease temperature below ' + minimumTemperature, function() {
+    thermostat._temp = 10
+    thermostat.down();
+    expect(thermostat.temperature())
+      .toEqual(minimumTemperature);
+  });
 });

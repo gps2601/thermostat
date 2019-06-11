@@ -1,5 +1,6 @@
-const defaultTemperature = 20
-const defaultTempChange = 1
+const defaultTemperature = 20;
+const defaultTempChange = 1;
+const minimumTemperature = 10;
 
 function Thermostat() {
   this._temp = defaultTemperature;
@@ -14,5 +15,7 @@ Thermostat.prototype.up = function () {
 };
 
 Thermostat.prototype.down = function () {
-  this._temp -= defaultTempChange;
+  if (this._temp > minimumTemperature) {
+    this._temp -= defaultTempChange;
+  }
 };
