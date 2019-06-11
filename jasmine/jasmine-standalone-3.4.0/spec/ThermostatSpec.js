@@ -3,7 +3,15 @@ describe('Thermostat', function() {
     thermostat = new Thermostat();
   });
 
-  it('has a temperature', function() {
-    expect(thermostat.temperature).toBeDefined();
+  it('#temperature to be defined', function() {
+    expect(thermostat.temperature()).toBeDefined();
+  });
+
+  it('#temperature to return a number', function() {
+    expect(thermostat.temperature()).toEqual(jasmine.any(Number));
+  });
+
+  it('#temperature to start at 20', function() {
+    expect(thermostat.temperature()).toEqual(20);
   });
 });
