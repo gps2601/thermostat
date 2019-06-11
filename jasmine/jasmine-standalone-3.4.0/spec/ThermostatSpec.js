@@ -56,4 +56,10 @@ describe('Thermostat', function() {
     thermostat.togglePowerSaving();
     expect(thermostat.powerSaving).toEqual(true);
   });
+
+  it('wont exceed max temperature when power saving on', function(){
+    thermostat.temp = 25;
+    thermostat.up();
+    expect(thermostat.temp).toEqual(25);
+  });
 });

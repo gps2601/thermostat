@@ -12,6 +12,9 @@ Thermostat.prototype.temperature = function () {
 };
 
 Thermostat.prototype.up = function () {
+  if (this.isMaximumTemperature()) {
+    return;
+  }
   this.temp += defaultTempChange;
 };
 
@@ -19,12 +22,25 @@ Thermostat.prototype.down = function () {
   if (this.isMinimumTemperature()) {
     return;
   }
-  this.temp -= 1;
+  this.temp -= defaultTempChange;
 };
+
+Thermostat.prototype.isMaximumTemperature = function() {
+  var maximumTemperature;
+
+  if (this.powerSaving) {
+    maximumTemperature = 25;
+  } else {
+    maximumTemperature = 32;
+  }
+
+  return this.temp === maximumTemperature;
+}
 
 Thermostat.prototype.isMinimumTemperature = function() {
   return this.temp === minimumTemperature;
 }
+
 
 Thermostat.prototype.togglePowerSaving = function() {
   this.powerSaving = !this.powerSaving;
