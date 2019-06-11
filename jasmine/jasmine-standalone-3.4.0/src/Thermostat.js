@@ -15,7 +15,12 @@ Thermostat.prototype.up = function () {
 };
 
 Thermostat.prototype.down = function () {
-  if (this._temp > minimumTemperature) {
-    this._temp -= defaultTempChange;
+  if (this.isMinimumTemperature()) {
+    return;
   }
+  this._temp -= 1;
 };
+
+Thermostat.prototype.isMinimumTemperature = function() {
+  return this._temp === minimumTemperature;
+}
