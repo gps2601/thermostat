@@ -28,7 +28,9 @@ describe('Thermostat', function() {
   });
 
   it('#down wont decrease temperature below ' + minimumTemperature, function() {
-    thermostat.temp = 10
+    for (var i = 0; i < 11; i++) {
+      thermostat.down();
+    }
     thermostat.down();
     expect(thermostat.temperature())
       .toEqual(minimumTemperature);
@@ -58,8 +60,19 @@ describe('Thermostat', function() {
   });
 
   it('wont exceed max temperature when power saving on', function(){
-    thermostat.temp = 25;
+    for (var i = 0; i < 6; i++) {
+      thermostat.up();
+    }
     thermostat.up();
     expect(thermostat.temp).toEqual(25);
+  });
+
+  it('wont exceed max temperature when power saving off', function(){
+    thermostat.togglePowerSaving();
+    for (var i = 0; i < 13; i++) {
+      thermostat.up();
+    }
+    thermostat.up();
+    expect(thermostat.temp).toEqual(32);
   });
 });
