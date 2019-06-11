@@ -33,4 +33,8 @@ describe('Thermostat', function() {
     expect(thermostat.temperature())
       .toEqual(minimumTemperature);
   });
+
+  it('#powerSaving to be defined', function() {
+    expect(thermostat.powerSaving).toBeDefined();
+  });
 });
