@@ -49,3 +49,7 @@ Thermostat.prototype.togglePowerSaving = function() {
 Thermostat.prototype.reset = function () {
   this.temp = defaultTemperature;
 };
+
+Thermostat.prototype.energyUsage = function () {
+  return 'low-usage';
+};
