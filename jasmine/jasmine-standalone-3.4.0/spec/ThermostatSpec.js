@@ -37,4 +37,8 @@ describe('Thermostat', function() {
   it('#powerSaving to be defined', function() {
     expect(thermostat.powerSaving).toBeDefined();
   });
+
+  it('#powerSaving to be boolean', function() {
+    expect(thermostat.powerSaving).toMatch(/true|false/);
+  });
 });

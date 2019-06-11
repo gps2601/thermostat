@@ -4,7 +4,7 @@ const minimumTemperature = 10;
 
 function Thermostat() {
   this._temp = defaultTemperature;
-  this.powerSaving = null;
+  this.powerSaving = true;
 };
 
 Thermostat.prototype.temperature = function () {
