@@ -6,18 +6,32 @@
 
   <title>Thermostat</title>
   <script src="jquery-3.4.1.js"></script>
+  <script src="jasmine/jasmine-standalone-3.4.0/src/Thermostat.js"></script>
+  <script src="thermostat-controller.js"></script>
   <link rel="stylesheet" href="css/styles.css">
   <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
-  <script src="jasmine/jasmine-standalone-3.4.0/src/Thermostat.js"></script>
 </head>
 <body align="center">
   <div class="button_cont" >
-    <a class="button">Up 🔥 </a>
-    <a class="button">Down ❄️</a>
-    <a class="button">Reset ♻️</a>
-    <a class="button">Power Saving 🌍</a>
+    <a class="button" id="up">Up 🔥 </a>
+    <a class="button" id="down">Down ❄️</a>
+    <a class="button" id="reset">Reset ♻️</a>
+    <a class="button" id="powerSaving">Power Saving 🌍</a>
   </div>
-  <div class="tempText">20C</div>
+
+  <div class="tempText" id='temperature'>20C</div>
   <div class="usageText">Low-usage</div>
+  <script>
+    // $( document ).ready(function() {
+    //   $( "a" ).click(function( event ) {
+    //     alert("Thanks for visiting!");
+    //   });
+    // });
+
+    // $( "a" ).click(function( event ) {
+    //   event.preventDefault();
+    //   $( this ).hide("slow");
+    // });
+  </script>
 </body>
 </html>
