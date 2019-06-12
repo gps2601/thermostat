@@ -14,13 +14,21 @@ border-color: #494949 !important;
 transition: all 0.3s ease 0s;
 }
 
-.tempText {
+#temperature {
   padding: 30px;
   font-size: 30px;
 }
 
-.usageText {
-  padding: 10px;
+.low-usage {
+  color: green;
+}
+
+.medium-usage {
+  color: black;
+}
+
+.high-usage {
+  color: red;
 }
 
 html, body {
