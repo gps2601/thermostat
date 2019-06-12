@@ -1,5 +1,6 @@
 $(document).ready(function() {
   thermostat = new Thermostat();
+  updateTemperature()
 
   $("#up").click( function() {
     thermostat.up();
@@ -22,7 +23,7 @@ $(document).ready(function() {
   });
 
   function updateTemperature() {
-    $('#temperature').text(thermostat.temp);
+    $('#temperature').text(thermostat.temperatureFormatted());
     $('#temperature').attr('class', thermostat.energyUsage())
   }
 });

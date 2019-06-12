@@ -11,6 +11,10 @@ Thermostat.prototype.temperature = function () {
   return this.temp;
 };
 
+Thermostat.prototype.temperatureFormatted = function () {
+  return this.temp + "°C";
+};
+
 Thermostat.prototype.APItemperature = function () {
   $.get("https://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=4c1a3536febad70a64e3f920a03f372a&units=metric", function(data) {
     return(data.main.temp);
