@@ -17,10 +17,12 @@ Thermostat.prototype.temperatureFormatted = function () {
 
 Thermostat.prototype.APItemperature = function () {
   $.get("https://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=4c1a3536febad70a64e3f920a03f372a&units=metric", function(data) {
-    return(data.main.temp);
+    response = data;
+    console.log(response.weather[0]['main'])
+    var icon = response.weather[0]['icon']
+    var iconUrl = "http://openweathermap.org/img/w/" + icon + ".png";
+    $('#weather_disp').attr('src', iconUrl);
   });
-  // console.log(result);
-
 };
 
 Thermostat.prototype.up = function () {
