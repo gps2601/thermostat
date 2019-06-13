@@ -58,6 +58,10 @@ Thermostat.prototype.reset = function () {
   this.temp = defaultTemperature;
 };
 
+Thermostat.prototype.setTemperature = function (newTemp) {
+  this.temp = parseInt(newTemp, 10);
+};
+
 Thermostat.prototype.energyUsage = function () {
   if(this.temp < 18) {
     return 'low-usage';

@@ -1,12 +1,8 @@
 $(document).ready(function() {
   thermostat = new Thermostat();
   var cityId = '2643743'
-  updateTemperature();
   updateWeather();
-
-  $.get( "http://lvh.me:9292/temperature", function( data ) {
-    alert( data );
-  });
+  loadTempFromSever();
 
   $("#up").click( function() {
     thermostat.up();
@@ -36,6 +32,13 @@ $(document).ready(function() {
   function updateTemperature() {
     $('#temperature').text(thermostat.temperatureFormatted());
     $('#temperature').attr('class', thermostat.energyUsage())
+  }
+
+  function loadTempFromSever() {
+    $.get( "http://lvh.me:9292/temperature", function( data ) {
+      thermostat.setTemperature(data);
+      updateTemperature();
+    });
   }
 
   function updateWeather() {
