@@ -31,13 +31,15 @@ $(document).ready(function() {
 
   function updateTemperature() {
     $('#temperature').text(thermostat.temperatureFormatted());
-    $('#temperature').attr('class', thermostat.energyUsage())
+    $('#temperature').attr('class', thermostat.energyUsage());
+    $.post("http://lvh.me:9292/temperature", "{temp : "+ thermostat.temp +"}");
   }
 
   function loadTempFromSever() {
     $.get( "http://lvh.me:9292/temperature", function( data ) {
-      thermostat.setTemperature(data);
-      updateTemperature();
+      console.log(data);
+      thermostat.setTemperature(parseInt(data, 10));
+      $('#temperature').text(thermostat.temperatureFormatted());
     });
   }
 

@@ -19,7 +19,15 @@ class Temperature < Sinatra::Base
   end
   
   get '/temperature' do
-    '24'
+    if session[:temp]
+      session[:temp]
+    else
+      '20'
+    end
+  end
+
+  post '/temperature' do
+    session[:temp] = params[:temp]
   end
 
   run! if app_file == $0
