@@ -28,13 +28,18 @@ $(document).ready(function() {
     updateTemperature();
   });
 
+  $('#cityPicker').change(function() {
+    cityId = $('#cityPicker').val();
+    updateWeather();
+  });
+
   function updateTemperature() {
     $('#temperature').text(thermostat.temperatureFormatted());
     $('#temperature').attr('class', thermostat.energyUsage())
   }
 
   function updateWeather() {
-    $.get("https://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=" + weatherApiKey + "&units=metric", function(data) {
+    $.get("https://api.openweathermap.org/data/2.5/weather?id=" + cityId + "&appid=" + weatherApiKey + "&units=metric", function(data) {
       response = data;
       console.log(response.weather[0]['main'])
       var icon = response.weather[0]['icon']
