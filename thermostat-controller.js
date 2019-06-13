@@ -2,7 +2,7 @@ $(document).ready(function() {
   thermostat = new Thermostat();
   updateTemperature()
 
-  $.get( "localhost:9292/temperature", function( data ) {
+  $.get( "http://lvh.me:9292/temperature", function( data ) {
     alert( data );
   });
 
