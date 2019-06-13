@@ -2,6 +2,9 @@ $(document).ready(function() {
   thermostat = new Thermostat();
   updateTemperature()
 
+  $.get( "localhost:9292/temperature", function( data ) {
+    alert( data );
+  });
 
   $("#up").click( function() {
     thermostat.up();
