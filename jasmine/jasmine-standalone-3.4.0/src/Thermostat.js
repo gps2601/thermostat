@@ -15,16 +15,6 @@ Thermostat.prototype.temperatureFormatted = function () {
   return this.temp + "°C";
 };
 
-Thermostat.prototype.APItemperature = function () {
-  $.get("https://api.openweathermap.org/data/2.5/weather?q=London,uk&APPID=" + weatherApiKey + "&units=metric", function(data) {
-    response = data;
-    console.log(response.weather[0]['main'])
-    var icon = response.weather[0]['icon']
-    var iconUrl = "http://openweathermap.org/img/w/" + icon + ".png";
-    $('#weather_disp').attr('src', iconUrl);
-  });
-};
-
 Thermostat.prototype.up = function () {
   if (this.isMaximumTemperature()) {
     return;
